@@ -1,0 +1,97 @@
+diff --git a/WhateverXe/kern_firmware.cpp b/WhateverXe/kern_firmware.cpp
+index dabae15..d023608 100644
+--- a/WhateverXe/kern_firmware.cpp
++++ b/WhateverXe/kern_firmware.cpp
+@@ -42,6 +42,19 @@ void XE::captureFirmware(IOPCIDevice *pci,const XELP::Profile &profile) {
+                         const auto data=reinterpret_cast<const void *>(vbtMap->getVirtualAddress());
+                         firmwarePorts=XELP::VBT::parse(data,region.bytes,profile.family);
+                         if(firmwarePorts.valid()){source=2;publishBytes(pci,"TGLVBT",data,firmwarePorts.bytes);}
++                        // This exact HP Omen VBT omits the panel index; accept entry 0 only after strict board/VBT identity checks.
++                        if(pci->configRead32(0)==0x46A68086U && pci->configRead32(0x2C)==0x8A13103CU &&
++                           region.bytes==8704 && firmwarePorts.bytes==8647 && firmwarePorts.valid() &&
++                           firmwarePorts.version==242 && !firmwarePorts.panel.valid && firmwarePorts.present==0x19 &&
++                           firmwarePorts.port[0].internal() && firmwarePorts.port[0].dp() &&
++                           static_cast<const uint8_t *>(data)[2198]==0xFF) {
++                            auto candidate=XELP::VBT::parse(data,region.bytes,profile.family,0);
++                            if(candidate.valid() && candidate.panel.valid && candidate.panel.ddi==0 &&
++                               candidate.present==firmwarePorts.present && candidate.checksum==firmwarePorts.checksum) {
++                                firmwarePorts.panel=candidate.panel;uint32_t fallback=1;
++                                publishBytes(pci,"WEXHPOmenPanelFallback",&fallback,sizeof(fallback));
++                            }
++                        }
+                     }
+                     if(vbtMap)vbtMap->release();
+                     if(vbtMemory)vbtMemory->release();
+diff --git a/WhateverXe/kern_vbt.hpp b/WhateverXe/kern_vbt.hpp
+index a8022a2..9cbc272 100644
+--- a/WhateverXe/kern_vbt.hpp
++++ b/WhateverXe/kern_vbt.hpp
+@@ -88,7 +88,7 @@ struct Ports {
+ };
+ // Optional panel facts must never weaken General Definitions admission or
+ // make an unrelated malformed firmware tail reject usable connector facts.
+-inline void panelFacts(const uint8_t *b,size_t header,size_t size,Ports &ports) {
++inline void panelFacts(const uint8_t *b,size_t header,size_t size,Ports &ports,int panelOverride=-1) {
+     const uint8_t *options=nullptr,*edp=nullptr,*power=nullptr,*backlight=nullptr;
+     size_t optionsSize=0,edpSize=0,powerSize=0,backlightSize=0;
+     bool duplicate=false,backlightDuplicate=false;
+@@ -107,7 +107,7 @@ inline void panelFacts(const uint8_t *b,size_t header,size_t size,Ports &ports)
+         if(b[at]==44){duplicate|=power!=nullptr;power=block;powerSize=n;}
+         at+=3+n;
+     }
+-    if(duplicate || !options || optionsSize<1 || options[0]>=16 ||
++    if(duplicate || !options || optionsSize<1 || (options[0]>=16 && !(options[0]==0xFF && panelOverride==0)) ||
+        !edp || edpSize<212 || (ports.version>=232 && (!power || powerSize<56)))return;
+     unsigned internal=PortCount;
+     for(unsigned d=0;d<PortCount;++d)if((ports.present&(1U<<d)) &&
+@@ -117,7 +117,7 @@ inline void panelFacts(const uint8_t *b,size_t header,size_t size,Ports &ports)
+     }
+     if(internal==PortCount)return;
+     auto &p=ports.panel;
+-    p.type=options[0];p.ddi=internal;
++    p.type=options[0]==0xFF ? unsigned(panelOverride) : options[0];p.ddi=internal;
+     p.lowSwing=((u64(edp+204)>>(4*p.type))&15)==0;
+     p.hobl=ports.version>=232 && (u16(power+54)&(1U<<p.type));
+     p.valid=true;
+@@ -144,7 +144,7 @@ inline uint32_t ddi(Family family,uint32_t dvo) {
+     }
+     return PortCount;
+ }
+-inline Ports parse(const void *data,size_t length,Family family) {
++inline Ports parse(const void *data,size_t length,Family family,int panelOverride=-1) {
+     Ports r;
+     if(!data || !length)return r;
+     if(displayAdapter(family)==DisplayAdapter::Unknown){r.status=Status::Platform;return r;}
+@@ -192,7 +192,7 @@ inline Ports parse(const void *data,size_t length,Family family) {
+         r.present|=1U<<d;
+         if(!q.fixedTMDS())r.ambiguous|=1U<<d;
+     }
+-    r.status=Status::Valid;panelFacts(b,bh,bs,r);return r;
++    r.status=Status::Valid;panelFacts(b,bh,bs,r,panelOverride);return r;
+ }
+ // OpRegion acquisition descriptor, kept pure for malformed/overflow testing.
+ struct Region {uint64_t address {};uint32_t bytes {},inlineBytes {};bool valid {};};
+diff --git a/WhateverXe/kern_xe.cpp b/WhateverXe/kern_xe.cpp
+index c94f4e7..4ca2dec 100644
+--- a/WhateverXe/kern_xe.cpp
++++ b/WhateverXe/kern_xe.cpp
+@@ -8562,6 +8562,19 @@ void XE::wrapAlderLakeNSetupWorkLoop(IOService *controller,IOWorkLoop *workLoop)
+                 const auto ddi=c.bridge.bootPort;
+                 const bool dp=ddi<7 && (callbackXE->adlnOutputWiring.links()&(1U<<ddi));
+                 bool linked=!dp;
++                // Restore native DDI 0 mode only for this exact validated HP panel/VBT and the protected GOP handoff.
++                if(dp && ddi==0 && pci && pci->configRead32(0)==0x46A68086U && pci->configRead32(0x2C)==0x8A13103CU &&
++                   pci->getProperty("WEXHPOmenPanelFallback") && port && port->getMetaClass()->getClassSize()>=0x624 &&
++                   Display13FBMemory::field<uint32_t>(port,0x550)==0 && c.bridge.bootPort==0 &&
++                   c.bridge.bootPGProtected && c.bridge.bootDDIProtected && c.mainLink[0].bootPending && !c.mainLink[0].owner) {
++                    port->retain();IOLockUnlock(c.lock);
++                    const auto modeResult=wrapDisplay13TCMode(port,1);
++                    IOLockLock(c.lock);
++                    uint64_t modeCheck[]={1,modeResult,Display13FBMemory::field<uint32_t>(port,0x550),
++                        c.bridge.state.faulted,c.clockFaulted,c.memoryFaulted};
++                    IORegistryEntry::getRegistryRoot()->setProperty("WEXHPBootPortMode",modeCheck,sizeof(modeCheck));
++                    port->release();
++                }
+                 if(dp && display13SSTPort(port)) {
+                     Display13FBBootIO io{c.map};auto &boot=c.displayScratch;AlderLakeN::readDisplay(io,true,boot);
+                     if(ddi>=3) {

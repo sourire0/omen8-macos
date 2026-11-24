@@ -1,0 +1,3195 @@
+{
+  "scope": "offline static plan; not executable and not a firmware/DMA sequence",
+  "firmware": {
+    "name": "sof-adl-ipc4-intel-signed-v2.12.ri",
+    "image_name": "ADSPFW",
+    "version": [
+      2,
+      12,
+      0,
+      1
+    ],
+    "sha256": "351325786e53ca7cd23ffc1462d82913f3e0c08ad78f89053d85e4b6703cf12b",
+    "module_count": 25
+  },
+  "nhlt_dmic_capture": {
+    "table": "NHLT-HP-8A13-20261031.aml",
+    "table_sha256": "83b3cee80f969becf787bd12f24fc4a48051f205eacd7c1f56ca2326aec1a0ad",
+    "endpoint_index": 0,
+    "format_index": 1,
+    "vendor_device": "8086:AE20",
+    "link_type": 2,
+    "direction": 1,
+    "channels": 2,
+    "rate": 48000,
+    "container_bits": 32,
+    "valid_bits": 32,
+    "blob_bytes": 3048,
+    "blob_sha256": "5d940d929c0171795f5e84589e94169da0eb275aa93be5a5405f49cde6911118",
+    "blob_hex": "0100000010ffffff10ffffffffffffffffffffff030000000300000003003800030038000300000001c000000318000b00000000030e000000000000000000000000000000000000910000007600010000000000000000000000000000000000000000000000000091000000e801050000000000000000000000000000000000000000000000000049000040810140406d0380405304c0407802004119ff4f41edfd8f413700c041450200428c0040429bfd8f429dfecf426c02004367024043b1fd8f4325fccf436f01004421054044f3ff8f44c4f9cf44f9fd0f45bf0640458e04804573f9cf4596f80f4672054046690a8046cffccf46d1f20f47a4ff4f47250f8047fc04c04713f00f4893f54f48330f80486810c04875f30f4999e94f49a2078049901bc04965ff0f4ac2e04f4a99f78f4a9220c04ac412004b03e14f4b2ce28f4bf219c04ba328004cf5ee4f4c29ce8f4c8404c04c4038004d2c0b404d5ec58f4de9e2cf4df537004ef82f404e92d08f4ee1bdcf4edd20004f1852404f4ff48f4fb2a2cf4f4df00f5008604050782d805080a5cf5054b30f51824a4051a269805100d0cf51f57e0f525c0b4052cf8e80525221c052dc700f5396ad4f53067f8053c782c0530aa30f548d534f54c128805414c8c054211b005523324f5541978f55f2b6c05587b6005602814f5643088f563425c056191c01577e50405724ee8e57fd2ccf571cc900587147415801c68f58ba79ce586b6e0f59be5e415900708159765bcf5977f70d5aac514f5a09cf815a5336c25a37ce0f5ba83d4d5bb8658d5bef50c05b378e035cb2e2445ca511845ca359c25c48f2005d0e3f405d3908805d1b000080180040800a008080d7ffcf8067ff0f81a2fe4f8176fd8f81ddfbcf81e2f90f82a8f74f8267f58f826cf3cf820bf20f8397f14f834af28f833bf4cf8351f70f843ffb4f8488ff8f849203c084c00600858b084085a2088085fd06c085e9030086fcff4f86fffb8f86c8f8cf860ff70f8745f74f8775f98f873dfdcf87da0100884c0640888f098088d00ac088a409008927064089ff00808943fbcf893cf60f8a26f34f8addf28f8aa5f5cf8a11fb0f8b0c02408b0e09808b720ec08bd310008c690f408c420a808c4f02c08c3ef90f8d20f14f8df1eb8f8d25ebcf8d3def0f8e9df74f8e9602808ebd0dc08e6d16008f671a408f5f18808f6110c08fe40300908ff54f90abe88f9066e0cf9012df0f9183e54f91c3f28f912704c091d615009299234092d92980928426c092aa190093a6054093b6ee8f9321dacf9309cd0f942ccb4f94e8d58f94b1ebcf943808009531254095af3b8095b645c095c03f0096c6294096990780964ce0cf96dbbc0f973aa64f9739a38f97afb6cf976dde0f9833134098d54980985a75c098c4890099ed7e4099d5528099e70ac099ccb30f9ab85f4f9a67238f9a5912cf9aea3a0f9b13a34f9b8746809b8b16c19bbcfb019c6fd9429c3392839c980cc49c6b37049d980c449d3392839d6fd9c29dbcfb019e8b16419e8746809e13a3cf9eea3a0f9f59124f9f67238f9fb85fcf9fccb30fa0e70a40a0d55280a0ed7ec0a0c48900a15a7540a1d54980a13313c0a16dde0fa2afb64fa239a38fa23aa6cfa2dbbc0fa34ce04fa3990780a3c629c0a3c03f00a4b64540a4af3b80a43125c0a4380800a5b1eb4fa5e8d58fa52ccbcfa509cd0fa621da4fa6b6ee8fa6a605c0a6aa1900a7842640a7d92980a79923c0a7d61500a8270440a8c3f28fa883e5cfa812df0fa966e04fa9abe88fa98ff5cfa9e40300aa611040aa5f1880aa671ac0aa6d1600abbd0d40ab960280ab9df7cfab3def0fac25eb4facf1eb8fac20f1cfac3ef90fad4f0240ad420a80ad690fc0add31000ae720e40ae0e0980ae0c02c0ae11fb0fafa5f54fafddf28faf26f3cfaf3cf60fb043fb4fb0ff0080b02706c0b0a40900b1d00a40b18f0980b14c06c0b1da0100b23dfd4fb275f98fb245f7cfb20ff70fb3c8f84fb3fffb8fb3fcffcfb3e90300b4fd0640b4a20880b48b08c0b4c00600b5920340b588ff8fb53ffbcfb551f70fb63bf44fb64af28fb697f1cfb60bf20fb76cf34fb767f58fb7a8f7cfb7e2f90fb8ddfb4fb876fd8fb8a2fecfb867ff0fb9d7ff4fb90a0080b91800c0b91b0000ba01c000000318000b00000000030e000000000000000000000000000000000000910000007600010000000000000000000000000000000000000000000000000091000000e801050000000000000000000000000000000000000000000000000049000040810140406d0380405304c0407802004119ff4f41edfd8f413700c041450200428c0040429bfd8f429dfecf426c02004367024043b1fd8f4325fccf436f01004421054044f3ff8f44c4f9cf44f9fd0f45bf0640458e04804573f9cf4596f80f4672054046690a8046cffccf46d1f20f47a4ff4f47250f8047fc04c04713f00f4893f54f48330f80486810c04875f30f4999e94f49a2078049901bc04965ff0f4ac2e04f4a99f78f4a9220c04ac412004b03e14f4b2ce28f4bf219c04ba328004cf5ee4f4c29ce8f4c8404c04c4038004d2c0b404d5ec58f4de9e2cf4df537004ef82f404e92d08f4ee1bdcf4edd20004f1852404f4ff48f4fb2a2cf4f4df00f5008604050782d805080a5cf5054b30f51824a4051a269805100d0cf51f57e0f525c0b4052cf8e80525221c052dc700f5396ad4f53067f8053c782c0530aa30f548d534f54c128805414c8c054211b005523324f5541978f55f2b6c05587b6005602814f5643088f563425c056191c01577e50405724ee8e57fd2ccf571cc900587147415801c68f58ba79ce586b6e0f59be5e415900708159765bcf5977f70d5aac514f5a09cf815a5336c25a37ce0f5ba83d4d5bb8658d5bef50c05b378e035cb2e2445ca511845ca359c25c48f2005d0e3f405d3908805d1b000080180040800a008080d7ffcf8067ff0f81a2fe4f8176fd8f81ddfbcf81e2f90f82a8f74f8267f58f826cf3cf820bf20f8397f14f834af28f833bf4cf8351f70f843ffb4f8488ff8f849203c084c00600858b084085a2088085fd06c085e9030086fcff4f86fffb8f86c8f8cf860ff70f8745f74f8775f98f873dfdcf87da0100884c0640888f098088d00ac088a409008927064089ff00808943fbcf893cf60f8a26f34f8addf28f8aa5f5cf8a11fb0f8b0c02408b0e09808b720ec08bd310008c690f408c420a808c4f02c08c3ef90f8d20f14f8df1eb8f8d25ebcf8d3def0f8e9df74f8e9602808ebd0dc08e6d16008f671a408f5f18808f6110c08fe40300908ff54f90abe88f9066e0cf9012df0f9183e54f91c3f28f912704c091d615009299234092d92980928426c092aa190093a6054093b6ee8f9321dacf9309cd0f942ccb4f94e8d58f94b1ebcf943808009531254095af3b8095b645c095c03f0096c6294096990780964ce0cf96dbbc0f973aa64f9739a38f97afb6cf976dde0f9833134098d54980985a75c098c4890099ed7e4099d5528099e70ac099ccb30f9ab85f4f9a67238f9a5912cf9aea3a0f9b13a34f9b8746809b8b16c19bbcfb019c6fd9429c3392839c980cc49c6b37049d980c449d3392839d6fd9c29dbcfb019e8b16419e8746809e13a3cf9eea3a0f9f59124f9f67238f9fb85fcf9fccb30fa0e70a40a0d55280a0ed7ec0a0c48900a15a7540a1d54980a13313c0a16dde0fa2afb64fa239a38fa23aa6cfa2dbbc0fa34ce04fa3990780a3c629c0a3c03f00a4b64540a4af3b80a43125c0a4380800a5b1eb4fa5e8d58fa52ccbcfa509cd0fa621da4fa6b6ee8fa6a605c0a6aa1900a7842640a7d92980a79923c0a7d61500a8270440a8c3f28fa883e5cfa812df0fa966e04fa9abe88fa98ff5cfa9e40300aa611040aa5f1880aa671ac0aa6d1600abbd0d40ab960280ab9df7cfab3def0fac25eb4facf1eb8fac20f1cfac3ef90fad4f0240ad420a80ad690fc0add31000ae720e40ae0e0980ae0c02c0ae11fb0fafa5f54fafddf28faf26f3cfaf3cf60fb043fb4fb0ff0080b02706c0b0a40900b1d00a40b18f0980b14c06c0b1da0100b23dfd4fb275f98fb245f7cfb20ff70fb3c8f84fb3fffb8fb3fcffcfb3e90300b4fd0640b4a20880b48b08c0b4c00600b5920340b588ff8fb53ffbcfb551f70fb63bf44fb64af28fb697f1cfb60bf20fb76cf34fb767f58fb7a8f7cfb7e2f90fb8ddfb4fb876fd8fb8a2fecfb867ff0fb9d7ff4fb90a0080b91800c0b91b0000ba",
+    "note": "raw endpoint format blob; intended for DAI copier NHLT config after struct layout review"
+  },
+  "topology": {
+    "name": "sof-hda-generic-2ch-ipc4-v2.12-dmic-candidate.tplg",
+    "bytes": 8498,
+    "sha256": "6f707406d0c953e158cd0493495c07eac10fd2399590dbafdd4f2262e0d016fc",
+    "template_pipeline_id": 12,
+    "runtime_pipeline_id": "allocate dynamically; do not use template_pipeline_id",
+    "pipeline_tuple_values": [
+      [
+        4,
+        210,
+        0
+      ],
+      [
+        4,
+        207,
+        0
+      ],
+      [
+        4,
+        206,
+        1
+      ],
+      [
+        4,
+        205,
+        1
+      ],
+      [
+        4,
+        203,
+        0
+      ],
+      [
+        4,
+        201,
+        0
+      ],
+      [
+        2,
+        417,
+        1
+      ],
+      [
+        4,
+        404,
+        0
+      ]
+    ],
+    "create_pipeline_fields": {
+      "priority_token_201": 0,
+      "core_id_token_203": 0,
+      "low_power_token_207": 0,
+      "dynamic_pipeline_token_206": 1,
+      "memory_pages": 8,
+      "memory_pages_status": "calculated for selected 48 kHz, 2-channel, 32-bit LSB integer stream from each module input buffer and module type",
+      "primary_template_without_instance": 285212680,
+      "extension_template": 536870912,
+      "payload_bytes": 28,
+      "payload_dwords": 7,
+      "payload_hex": "07000001000000000000000003000300000000000000000000000000",
+      "payload_fields": {
+        "word0": "7 DWORD total + object-array flag",
+        "memory_object_header": "MEM_DATA object, 3 DWORD, last",
+        "domain_id": 0,
+        "stack_bytes": 0,
+        "heap_bytes": 0
+      }
+    },
+    "pipeline_embedded_control_count": 0,
+    "pcm": {
+      "name": "DMIC Raw",
+      "pcm_id": 6,
+      "dai_id": 6,
+      "direction_capture": true
+    },
+    "backend_link": {
+      "name": "dmic01",
+      "id": 6,
+      "tuples": [
+        {
+          "type": 4,
+          "token": 609,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 604,
+          "value": 60
+        },
+        {
+          "type": 4,
+          "token": 603,
+          "value": 40
+        },
+        {
+          "type": 4,
+          "token": 600,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 608,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 601,
+          "value": 500000
+        },
+        {
+          "type": 4,
+          "token": 602,
+          "value": 4800000
+        },
+        {
+          "type": 4,
+          "token": 610,
+          "value": 200
+        },
+        {
+          "type": 4,
+          "token": 605,
+          "value": 2
+        },
+        {
+          "type": 1,
+          "token": 154,
+          "value": "DMIC"
+        },
+        {
+          "type": 4,
+          "token": 155,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 706,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 705,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 704,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 703,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 701,
+          "value": 1
+        },
+        {
+          "type": 5,
+          "token": 702,
+          "value": 1
+        },
+        {
+          "type": 5,
+          "token": 700,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 706,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 705,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 704,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 703,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 700,
+          "value": 1
+        },
+        {
+          "type": 5,
+          "token": 701,
+          "value": 0
+        },
+        {
+          "type": 5,
+          "token": 702,
+          "value": 0
+        }
+      ]
+    },
+    "dai_widget": {
+      "name": "dai-copier.DMIC.dmic01.capture",
+      "tuples": [
+        {
+          "type": 4,
+          "token": 409,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 406,
+          "value": 1647
+        },
+        {
+          "type": 4,
+          "token": 412,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 404,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 415,
+          "value": 3
+        },
+        {
+          "type": 4,
+          "token": 416,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 156,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 155,
+          "value": 0
+        },
+        {
+          "type": 2,
+          "token": 417,
+          "value": 1
+        },
+        {
+          "type": 0,
+          "token": 405,
+          "value": "9ba00c83-ca12-4a83-943c-1fa2e82f9dda"
+        },
+        {
+          "type": 1,
+          "token": 154,
+          "value": "DMIC"
+        },
+        {
+          "type": 4,
+          "token": 1980,
+          "value": 11
+        },
+        {
+          "type": 4,
+          "token": 1970,
+          "value": 192
+        },
+        {
+          "type": 4,
+          "token": 1908,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1907,
+          "value": 69634
+        },
+        {
+          "type": 4,
+          "token": 1906,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1905,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1904,
+          "value": 4294967056
+        },
+        {
+          "type": 4,
+          "token": 1903,
+          "value": 2
+        },
+        {
+          "type": 4,
+          "token": 1900,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 1901,
+          "value": 16
+        },
+        {
+          "type": 4,
+          "token": 1902,
+          "value": 16
+        },
+        {
+          "type": 4,
+          "token": 1970,
+          "value": 384
+        },
+        {
+          "type": 4,
+          "token": 1907,
+          "value": 6146
+        },
+        {
+          "type": 4,
+          "token": 1906,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1905,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1904,
+          "value": 4294967056
+        },
+        {
+          "type": 4,
+          "token": 1903,
+          "value": 2
+        },
+        {
+          "type": 4,
+          "token": 1900,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 1901,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1902,
+          "value": 24
+        },
+        {
+          "type": 4,
+          "token": 1908,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1970,
+          "value": 384
+        },
+        {
+          "type": 4,
+          "token": 1908,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1907,
+          "value": 73730
+        },
+        {
+          "type": 4,
+          "token": 1906,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1905,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1904,
+          "value": 4294967056
+        },
+        {
+          "type": 4,
+          "token": 1903,
+          "value": 2
+        },
+        {
+          "type": 4,
+          "token": 1900,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 1901,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1902,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1938,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1971,
+          "value": 384
+        },
+        {
+          "type": 4,
+          "token": 1937,
+          "value": 73730
+        },
+        {
+          "type": 4,
+          "token": 1936,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1935,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1934,
+          "value": 4294967056
+        },
+        {
+          "type": 4,
+          "token": 1933,
+          "value": 2
+        },
+        {
+          "type": 4,
+          "token": 1930,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 1931,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1932,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1970,
+          "value": 384
+        },
+        {
+          "type": 4,
+          "token": 1907,
+          "value": 6146
+        },
+        {
+          "type": 4,
+          "token": 1906,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1905,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1904,
+          "value": 4294967056
+        },
+        {
+          "type": 4,
+          "token": 1903,
+          "value": 2
+        },
+        {
+          "type": 4,
+          "token": 1900,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 1901,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1902,
+          "value": 24
+        },
+        {
+          "type": 4,
+          "token": 1908,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1970,
+          "value": 384
+        },
+        {
+          "type": 4,
+          "token": 1908,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1907,
+          "value": 73730
+        },
+        {
+          "type": 4,
+          "token": 1906,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1905,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1904,
+          "value": 4294967056
+        },
+        {
+          "type": 4,
+          "token": 1903,
+          "value": 2
+        },
+        {
+          "type": 4,
+          "token": 1900,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 1901,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1902,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1938,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1971,
+          "value": 768
+        },
+        {
+          "type": 4,
+          "token": 1937,
+          "value": 73732
+        },
+        {
+          "type": 4,
+          "token": 1936,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1930,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 1933,
+          "value": 4
+        },
+        {
+          "type": 4,
+          "token": 1931,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1932,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1935,
+          "value": 4
+        },
+        {
+          "type": 4,
+          "token": 1934,
+          "value": 4294914576
+        },
+        {
+          "type": 4,
+          "token": 1938,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1971,
+          "value": 384
+        },
+        {
+          "type": 4,
+          "token": 1937,
+          "value": 73730
+        },
+        {
+          "type": 4,
+          "token": 1936,
+          "value": 0
+        },
+        {
+          "type": 4,
+          "token": 1935,
+          "value": 1
+        },
+        {
+          "type": 4,
+          "token": 1934,
+          "value": 4294967056
+        },
+        {
+          "type": 4,
+          "token": 1933,
+          "value": 2
+        },
+        {
+          "type": 4,
+          "token": 1930,
+          "value": 48000
+        },
+        {
+          "type": 4,
+          "token": 1931,
+          "value": 32
+        },
+        {
+          "type": 4,
+          "token": 1932,
+          "value": 32
+        }
+      ]
+    },
+    "widgets": {
+      "dai-copier.DMIC.dmic01.capture": {
+        "source_block_index": 12,
+        "widget_type_code": 14,
+        "private_tuple_uuids": [
+          "9ba00c83-ca12-4a83-943c-1fa2e82f9dda"
+        ],
+        "private_tuple_arrays": [
+          {
+            "tuple_type": 4,
+            "count": 6,
+            "values": [
+              {
+                "type": 4,
+                "token": 409,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 406,
+                "value": 1647
+              },
+              {
+                "type": 4,
+                "token": 412,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 404,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 415,
+                "value": 3
+              },
+              {
+                "type": 4,
+                "token": 416,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 2,
+            "values": [
+              {
+                "type": 4,
+                "token": 156,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 155,
+                "value": 0
+              }
+            ]
+          },
+          {
+            "tuple_type": 2,
+            "count": 1,
+            "values": [
+              {
+                "type": 2,
+                "token": 417,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 0,
+            "count": 1,
+            "values": [
+              {
+                "type": 0,
+                "token": 405,
+                "value": "9ba00c83-ca12-4a83-943c-1fa2e82f9dda"
+              }
+            ]
+          },
+          {
+            "tuple_type": 1,
+            "count": 1,
+            "values": [
+              {
+                "type": 1,
+                "token": 154,
+                "value": "DMIC"
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 1,
+            "values": [
+              {
+                "type": 4,
+                "token": 1980,
+                "value": 11
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 192
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 69634
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 16
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 16
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 6146
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 24
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 0
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 6146
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 24
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 0
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 768
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73732
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294914576
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              }
+            ]
+          }
+        ],
+        "input_audio_formats": [
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 16,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 69634,
+            "buffer_size": 192,
+            "channels": 2,
+            "valid_bit_depth": 16,
+            "sample_type": 1
+          },
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 6146,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 24,
+            "sample_type": 0
+          },
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          }
+        ],
+        "output_audio_formats": [
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          }
+        ],
+        "firmware_modules": [
+          {
+            "uuid": "9ba00c83-ca12-4a83-943c-1fa2e82f9dda",
+            "manifest_index": 4,
+            "manifest_name": "COPIER"
+          }
+        ],
+        "embedded_control_count": 0,
+        "private_tuple_data_size": 956,
+        "private_tuple_data_hex": "3c00000004000000060000009901000001000000960100006f0600009c0100000100000094010000000000009f01000003000000a0010000010000001c00000004000000020000009c000000010000009b00000000000000140000000200000001000000a10100000100000020000000000000000100000095010000830ca09b12ca834a943c1fa2e82f9dda3c00000001000000010000009a000000444d494300000000000000000000000000000000000000000000000000000000000000000000000000000000140000000400000001000000bc0700000b0000005c000000040000000a000000b2070000c000000074070000010000007307000002100100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000100000006e070000100000005c000000040000000a000000b2070000800100007307000002180000720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e0700001800000074070000000000005c000000040000000a000000b20700008001000074070000010000007307000002200100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e070000200000005c000000040000000a0000009207000001000000b307000080010000910700000220010090070000000000008f070000010000008e07000010ffffff8d070000020000008a07000080bb00008b070000200000008c070000200000005c000000040000000a000000b2070000800100007307000002180000720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e0700001800000074070000000000005c000000040000000a000000b20700008001000074070000010000007307000002200100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e070000200000005c000000040000000a0000009207000001000000b307000000030000910700000420010090070000000000008a07000080bb00008d070000040000008b070000200000008c070000200000008f070000040000008e0700001032ffff5c000000040000000a0000009207000001000000b307000080010000910700000220010090070000000000008f070000010000008e07000010ffffff8d070000020000008a07000080bb00008b070000200000008c07000020000000",
+        "embedded_controls": [],
+        "record_sha256": "4bdb91e42b1f0a4a810f10f593efdcb97ff7ea9a61b0825ddbb2ae5ed9fcb80f",
+        "selected_module_configuration": {
+          "uuid": "9ba00c83-ca12-4a83-943c-1fa2e82f9dda",
+          "module_id": 4,
+          "module_type": 32,
+          "module_init_config_type": 0,
+          "core_id": 0,
+          "input_format_index": 2,
+          "input_format": {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          },
+          "output_format_index": 0,
+          "output_format": {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          },
+          "ibs": 384,
+          "obs": 384,
+          "is_pages": 1,
+          "manifest_ibs_obs_matches": [],
+          "cpc": 0,
+          "base_module_config_words": [
+            0,
+            384,
+            384,
+            1,
+            48000,
+            32,
+            4294967056,
+            1,
+            0,
+            73730
+          ],
+          "base_module_config_bytes": 40,
+          "base_module_config_hex": "0000000080010000800100000100000080bb00002000000010ffffff010000000000000002200100",
+          "resource_estimate": {
+            "domain": "low_latency",
+            "task_bytes": 697,
+            "queue_bytes": 4096,
+            "total_bytes_before_page_roundup": 4793,
+            "pages": 2
+          },
+          "init_payload_bytes": 3128,
+          "init_payload_sha256": "0b13d75c196dadd9ef269048bccdca4f938f115f8af2082696e40017b9fc8605",
+          "init_payload_hex": "0000000080010000800100000100000080bb00002000000010ffffff01000000000000000220010080bb00002000000010ffffff01000000000000000220010000000000000b000000060000fa0200000100000010ffffff10ffffffffffffffffffffff030000000300000003003800030038000300000001c000000318000b00000000030e000000000000000000000000000000000000910000007600010000000000000000000000000000000000000000000000000091000000e801050000000000000000000000000000000000000000000000000049000040810140406d0380405304c0407802004119ff4f41edfd8f413700c041450200428c0040429bfd8f429dfecf426c02004367024043b1fd8f4325fccf436f01004421054044f3ff8f44c4f9cf44f9fd0f45bf0640458e04804573f9cf4596f80f4672054046690a8046cffccf46d1f20f47a4ff4f47250f8047fc04c04713f00f4893f54f48330f80486810c04875f30f4999e94f49a2078049901bc04965ff0f4ac2e04f4a99f78f4a9220c04ac412004b03e14f4b2ce28f4bf219c04ba328004cf5ee4f4c29ce8f4c8404c04c4038004d2c0b404d5ec58f4de9e2cf4df537004ef82f404e92d08f4ee1bdcf4edd20004f1852404f4ff48f4fb2a2cf4f4df00f5008604050782d805080a5cf5054b30f51824a4051a269805100d0cf51f57e0f525c0b4052cf8e80525221c052dc700f5396ad4f53067f8053c782c0530aa30f548d534f54c128805414c8c054211b005523324f5541978f55f2b6c05587b6005602814f5643088f563425c056191c01577e50405724ee8e57fd2ccf571cc900587147415801c68f58ba79ce586b6e0f59be5e415900708159765bcf5977f70d5aac514f5a09cf815a5336c25a37ce0f5ba83d4d5bb8658d5bef50c05b378e035cb2e2445ca511845ca359c25c48f2005d0e3f405d3908805d1b000080180040800a008080d7ffcf8067ff0f81a2fe4f8176fd8f81ddfbcf81e2f90f82a8f74f8267f58f826cf3cf820bf20f8397f14f834af28f833bf4cf8351f70f843ffb4f8488ff8f849203c084c00600858b084085a2088085fd06c085e9030086fcff4f86fffb8f86c8f8cf860ff70f8745f74f8775f98f873dfdcf87da0100884c0640888f098088d00ac088a409008927064089ff00808943fbcf893cf60f8a26f34f8addf28f8aa5f5cf8a11fb0f8b0c02408b0e09808b720ec08bd310008c690f408c420a808c4f02c08c3ef90f8d20f14f8df1eb8f8d25ebcf8d3def0f8e9df74f8e9602808ebd0dc08e6d16008f671a408f5f18808f6110c08fe40300908ff54f90abe88f9066e0cf9012df0f9183e54f91c3f28f912704c091d615009299234092d92980928426c092aa190093a6054093b6ee8f9321dacf9309cd0f942ccb4f94e8d58f94b1ebcf943808009531254095af3b8095b645c095c03f0096c6294096990780964ce0cf96dbbc0f973aa64f9739a38f97afb6cf976dde0f9833134098d54980985a75c098c4890099ed7e4099d5528099e70ac099ccb30f9ab85f4f9a67238f9a5912cf9aea3a0f9b13a34f9b8746809b8b16c19bbcfb019c6fd9429c3392839c980cc49c6b37049d980c449d3392839d6fd9c29dbcfb019e8b16419e8746809e13a3cf9eea3a0f9f59124f9f67238f9fb85fcf9fccb30fa0e70a40a0d55280a0ed7ec0a0c48900a15a7540a1d54980a13313c0a16dde0fa2afb64fa239a38fa23aa6cfa2dbbc0fa34ce04fa3990780a3c629c0a3c03f00a4b64540a4af3b80a43125c0a4380800a5b1eb4fa5e8d58fa52ccbcfa509cd0fa621da4fa6b6ee8fa6a605c0a6aa1900a7842640a7d92980a79923c0a7d61500a8270440a8c3f28fa883e5cfa812df0fa966e04fa9abe88fa98ff5cfa9e40300aa611040aa5f1880aa671ac0aa6d1600abbd0d40ab960280ab9df7cfab3def0fac25eb4facf1eb8fac20f1cfac3ef90fad4f0240ad420a80ad690fc0add31000ae720e40ae0e0980ae0c02c0ae11fb0fafa5f54fafddf28faf26f3cfaf3cf60fb043fb4fb0ff0080b02706c0b0a40900b1d00a40b18f0980b14c06c0b1da0100b23dfd4fb275f98fb245f7cfb20ff70fb3c8f84fb3fffb8fb3fcffcfb3e90300b4fd0640b4a20880b48b08c0b4c00600b5920340b588ff8fb53ffbcfb551f70fb63bf44fb64af28fb697f1cfb60bf20fb76cf34fb767f58fb7a8f7cfb7e2f90fb8ddfb4fb876fd8fb8a2fecfb867ff0fb9d7ff4fb90a0080b91800c0b91b0000ba01c000000318000b00000000030e000000000000000000000000000000000000910000007600010000000000000000000000000000000000000000000000000091000000e801050000000000000000000000000000000000000000000000000049000040810140406d0380405304c0407802004119ff4f41edfd8f413700c041450200428c0040429bfd8f429dfecf426c02004367024043b1fd8f4325fccf436f01004421054044f3ff8f44c4f9cf44f9fd0f45bf0640458e04804573f9cf4596f80f4672054046690a8046cffccf46d1f20f47a4ff4f47250f8047fc04c04713f00f4893f54f48330f80486810c04875f30f4999e94f49a2078049901bc04965ff0f4ac2e04f4a99f78f4a9220c04ac412004b03e14f4b2ce28f4bf219c04ba328004cf5ee4f4c29ce8f4c8404c04c4038004d2c0b404d5ec58f4de9e2cf4df537004ef82f404e92d08f4ee1bdcf4edd20004f1852404f4ff48f4fb2a2cf4f4df00f5008604050782d805080a5cf5054b30f51824a4051a269805100d0cf51f57e0f525c0b4052cf8e80525221c052dc700f5396ad4f53067f8053c782c0530aa30f548d534f54c128805414c8c054211b005523324f5541978f55f2b6c05587b6005602814f5643088f563425c056191c01577e50405724ee8e57fd2ccf571cc900587147415801c68f58ba79ce586b6e0f59be5e415900708159765bcf5977f70d5aac514f5a09cf815a5336c25a37ce0f5ba83d4d5bb8658d5bef50c05b378e035cb2e2445ca511845ca359c25c48f2005d0e3f405d3908805d1b000080180040800a008080d7ffcf8067ff0f81a2fe4f8176fd8f81ddfbcf81e2f90f82a8f74f8267f58f826cf3cf820bf20f8397f14f834af28f833bf4cf8351f70f843ffb4f8488ff8f849203c084c00600858b084085a2088085fd06c085e9030086fcff4f86fffb8f86c8f8cf860ff70f8745f74f8775f98f873dfdcf87da0100884c0640888f098088d00ac088a409008927064089ff00808943fbcf893cf60f8a26f34f8addf28f8aa5f5cf8a11fb0f8b0c02408b0e09808b720ec08bd310008c690f408c420a808c4f02c08c3ef90f8d20f14f8df1eb8f8d25ebcf8d3def0f8e9df74f8e9602808ebd0dc08e6d16008f671a408f5f18808f6110c08fe40300908ff54f90abe88f9066e0cf9012df0f9183e54f91c3f28f912704c091d615009299234092d92980928426c092aa190093a6054093b6ee8f9321dacf9309cd0f942ccb4f94e8d58f94b1ebcf943808009531254095af3b8095b645c095c03f0096c6294096990780964ce0cf96dbbc0f973aa64f9739a38f97afb6cf976dde0f9833134098d54980985a75c098c4890099ed7e4099d5528099e70ac099ccb30f9ab85f4f9a67238f9a5912cf9aea3a0f9b13a34f9b8746809b8b16c19bbcfb019c6fd9429c3392839c980cc49c6b37049d980c449d3392839d6fd9c29dbcfb019e8b16419e8746809e13a3cf9eea3a0f9f59124f9f67238f9fb85fcf9fccb30fa0e70a40a0d55280a0ed7ec0a0c48900a15a7540a1d54980a13313c0a16dde0fa2afb64fa239a38fa23aa6cfa2dbbc0fa34ce04fa3990780a3c629c0a3c03f00a4b64540a4af3b80a43125c0a4380800a5b1eb4fa5e8d58fa52ccbcfa509cd0fa621da4fa6b6ee8fa6a605c0a6aa1900a7842640a7d92980a79923c0a7d61500a8270440a8c3f28fa883e5cfa812df0fa966e04fa9abe88fa98ff5cfa9e40300aa611040aa5f1880aa671ac0aa6d1600abbd0d40ab960280ab9df7cfab3def0fac25eb4facf1eb8fac20f1cfac3ef90fad4f0240ad420a80ad690fc0add31000ae720e40ae0e0980ae0c02c0ae11fb0fafa5f54fafddf28faf26f3cfaf3cf60fb043fb4fb0ff0080b02706c0b0a40900b1d00a40b18f0980b14c06c0b1da0100b23dfd4fb275f98fb245f7cfb20ff70fb3c8f84fb3fffb8fb3fcffcfb3e90300b4fd0640b4a20880b48b08c0b4c00600b5920340b588ff8fb53ffbcfb551f70fb63bf44fb64af28fb697f1cfb60bf20fb76cf34fb767f58fb7a8f7cfb7e2f90fb8ddfb4fb876fd8fb8a2fecfb867ff0fb9d7ff4fb90a0080b91800c0b91b0000ba",
+          "init_payload_layout": "DAI copier: base + output format + feature mask + gateway + NHLT blob",
+          "init_payload_serialization_status": "derived from local SOF IPC4 struct layout; static offline only",
+          "ipc4_init_module_header": {
+            "message_type": 0,
+            "module_target": true,
+            "primary_template_without_instance": 1073741828,
+            "module_instance": "allocate dynamically",
+            "extension_payload_dwords": 782,
+            "runtime_pipeline_id": "allocate dynamically",
+            "core_id": 0,
+            "payload_limit_bytes": 4096,
+            "within_limit": true
+          }
+        }
+      },
+      "module-copier.12.2": {
+        "source_block_index": 12,
+        "widget_type_code": 16,
+        "private_tuple_uuids": [
+          "9ba00c83-ca12-4a83-943c-1fa2e82f9dda"
+        ],
+        "private_tuple_arrays": [
+          {
+            "tuple_type": 4,
+            "count": 7,
+            "values": [
+              {
+                "type": 4,
+                "token": 409,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 406,
+                "value": 1647
+              },
+              {
+                "type": 4,
+                "token": 412,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 411,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 404,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 415,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 416,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 2,
+            "count": 1,
+            "values": [
+              {
+                "type": 2,
+                "token": 417,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 0,
+            "count": 1,
+            "values": [
+              {
+                "type": 0,
+                "token": 405,
+                "value": "9ba00c83-ca12-4a83-943c-1fa2e82f9dda"
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 768
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73732
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294914576
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 768
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73732
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294914576
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              }
+            ]
+          }
+        ],
+        "input_audio_formats": [
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          }
+        ],
+        "output_audio_formats": [
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          }
+        ],
+        "firmware_modules": [
+          {
+            "uuid": "9ba00c83-ca12-4a83-943c-1fa2e82f9dda",
+            "manifest_index": 4,
+            "manifest_name": "COPIER"
+          }
+        ],
+        "embedded_control_count": 0,
+        "private_tuple_data_size": 672,
+        "private_tuple_data_hex": "4400000004000000070000009901000001000000960100006f0600009c010000040000009b0100000100000094010000000000009f01000001000000a001000001000000140000000200000001000000a10100000100000020000000000000000100000095010000830ca09b12ca834a943c1fa2e82f9dda5c000000040000000a000000b20700008001000074070000010000007307000002200100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e070000200000005c000000040000000a0000009207000001000000b307000080010000910700000220010090070000000000008f070000010000008e07000010ffffff8d070000020000008a07000080bb00008b070000200000008c070000200000005c000000040000000a000000b2070000000300007407000001000000730700000420010072070000000000006c07000080bb00006f070000040000006d070000200000006e070000200000007107000004000000700700001032ffff5c000000040000000a000000b20700008001000074070000010000007307000002200100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e070000200000005c000000040000000a0000009207000001000000b307000000030000910700000420010090070000000000008a07000080bb00008d070000040000008b070000200000008c070000200000008f070000040000008e0700001032ffff5c000000040000000a0000009207000001000000b307000080010000910700000220010090070000000000008f070000010000008e07000010ffffff8d070000020000008a07000080bb00008b070000200000008c07000020000000",
+        "embedded_controls": [],
+        "record_sha256": "8d3d9cf5044dd6a789188c3231f4d6feeaceb8939b1ee0ca1cfcfd884985ba3f",
+        "selected_module_configuration": {
+          "uuid": "9ba00c83-ca12-4a83-943c-1fa2e82f9dda",
+          "module_id": 4,
+          "module_type": 32,
+          "module_init_config_type": 0,
+          "core_id": 0,
+          "input_format_index": 0,
+          "input_format": {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          },
+          "output_format_index": 0,
+          "output_format": {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          },
+          "ibs": 384,
+          "obs": 384,
+          "is_pages": 1,
+          "manifest_ibs_obs_matches": [],
+          "cpc": 0,
+          "base_module_config_words": [
+            0,
+            384,
+            384,
+            1,
+            48000,
+            32,
+            4294967056,
+            1,
+            0,
+            73730
+          ],
+          "base_module_config_bytes": 40,
+          "base_module_config_hex": "0000000080010000800100000100000080bb00002000000010ffffff010000000000000002200100",
+          "resource_estimate": {
+            "domain": "low_latency",
+            "task_bytes": 697,
+            "queue_bytes": 4096,
+            "total_bytes_before_page_roundup": 4793,
+            "pages": 2
+          },
+          "init_payload_bytes": 84,
+          "init_payload_sha256": "58cd308c2bd1f045beae2726cc87ac135d6ea42cab9a53688cd4c746a1cb99ce",
+          "init_payload_hex": "0000000080010000800100000100000080bb00002000000010ffffff01000000000000000220010080bb00002000000010ffffff01000000000000000220010000000000ffffffff000000000100000000000000",
+          "init_payload_layout": "module copier: base + output format + feature mask + gateway + one zero attribute",
+          "init_payload_serialization_status": "derived from local SOF IPC4 struct layout; static offline only",
+          "ipc4_init_module_header": {
+            "message_type": 0,
+            "module_target": true,
+            "primary_template_without_instance": 1073741828,
+            "module_instance": "allocate dynamically",
+            "extension_payload_dwords": 21,
+            "runtime_pipeline_id": "allocate dynamically",
+            "core_id": 0,
+            "payload_limit_bytes": 4096,
+            "within_limit": true
+          }
+        }
+      },
+      "eqiir.12.1": {
+        "source_block_index": 12,
+        "widget_type_code": 18,
+        "private_tuple_uuids": [
+          "5150c0e6-27f9-4ec8-8351-c705b642d12f"
+        ],
+        "private_tuple_arrays": [
+          {
+            "tuple_type": 2,
+            "count": 1,
+            "values": [
+              {
+                "type": 2,
+                "token": 417,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 0,
+            "count": 1,
+            "values": [
+              {
+                "type": 0,
+                "token": 405,
+                "value": "5150c0e6-27f9-4ec8-8351-c705b642d12f"
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 5,
+            "values": [
+              {
+                "type": 4,
+                "token": 412,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 411,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 404,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 415,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 416,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 768
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73732
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294914576
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 768
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73732
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294914576
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              }
+            ]
+          }
+        ],
+        "input_audio_formats": [
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          }
+        ],
+        "output_audio_formats": [
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          }
+        ],
+        "firmware_modules": [
+          {
+            "uuid": "5150c0e6-27f9-4ec8-8351-c705b642d12f",
+            "manifest_index": 10,
+            "manifest_name": "EQIIR"
+          }
+        ],
+        "embedded_control_count": 1,
+        "private_tuple_data_size": 656,
+        "private_tuple_data_hex": "140000000200000001000000a10100000100000020000000000000000100000095010000e6c05051f927c84e8351c705b642d12f3400000004000000050000009c010000010000009b0100000100000094010000000000009f01000001000000a0010000010000005c000000040000000a000000b20700008001000074070000010000007307000002200100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e070000200000005c000000040000000a0000009207000001000000b307000080010000910700000220010090070000000000008f070000010000008e07000010ffffff8d070000020000008a07000080bb00008b070000200000008c070000200000005c000000040000000a000000b2070000000300007407000001000000730700000420010072070000000000006c07000080bb00006f070000040000006d070000200000006e070000200000007107000004000000700700001032ffff5c000000040000000a000000b20700008001000074070000010000007307000002200100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e070000200000005c000000040000000a0000009207000001000000b307000000030000910700000420010090070000000000008a07000080bb00008d070000040000008b070000200000008c070000200000008f070000040000008e0700001032ffff5c000000040000000a0000009207000001000000b307000080010000910700000220010090070000000000008f070000010000008e07000010ffffff8d070000020000008a07000080bb00008b070000200000008c07000020000000",
+        "embedded_controls": [
+          {
+            "name": "DMIC0 Capture IIR Eq",
+            "type_code": 2,
+            "control_index_within_type": 0,
+            "control_index_basis": "ASoC per-widget index counter for this control type",
+            "bytes": 360,
+            "sha256": "a4e613df84fee943b8ed8c94c1a803bf1c2cf0657e683508e18168f797ccc625",
+            "record_hex": "cc00000002000000444d4943302043617074757265204949522045710000000000000000000000000000000000000000000000003000001000000000000000000500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000f00000000004000000000000000000000000000002010000020100000000000078000000534f4634000000005800000000a00103000000000000000000000000000000005800000002000000010000000000000000000000000000000000000000000000000000000100000001000000000000000000000000000000000000004cdf78c023ae867f121bf51fdbc915c0121bf51ffcffffffd04f0000",
+            "ipc4_large_config_set": {
+              "module_uuid": "5150c0e6-27f9-4ec8-8351-c705b642d12f",
+              "module_id": 10,
+              "module_instance": "allocate dynamically",
+              "message_type": 4,
+              "module_target": true,
+              "parameter_id": 0,
+              "control_id": 0,
+              "control_id_status": "derived from per-widget bytes-control index ordering",
+              "abi_version": 50438144,
+              "parameter_data_bytes": 88,
+              "payload_bytes": 88,
+              "extension_first_last_size_param0": 805306456,
+              "control_payload_header_bytes": 0,
+              "control_payload_header_layout": "none; module large-config carries parameter bytes directly",
+              "payload_template_control_id_zero_not_validated": "5800000002000000010000000000000000000000000000000000000000000000000000000100000001000000000000000000000000000000000000004cdf78c023ae867f121bf51fdbc915c0121bf51ffcffffffd04f0000",
+              "control_id_binding_required_before_send": true,
+              "payload_sha256": "a0c16b417358f919ccc4b71991917969080a71fa23bcba1f0d43d054078a298c",
+              "transport_note": "wire payload prepends SOF IPC4 control header; control index is the per-widget bytes index; ABI header stays host-side"
+            }
+          }
+        ],
+        "record_sha256": "3979f4bf760ef0aaf7bd400517dd1c7de924fb55fdefadc7afa0d5e6fa1a0f73",
+        "selected_module_configuration": {
+          "uuid": "5150c0e6-27f9-4ec8-8351-c705b642d12f",
+          "module_id": 10,
+          "module_type": 32,
+          "module_init_config_type": 0,
+          "core_id": 0,
+          "input_format_index": 0,
+          "input_format": {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          },
+          "output_format_index": 0,
+          "output_format": {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          },
+          "ibs": 384,
+          "obs": 384,
+          "is_pages": 0,
+          "manifest_ibs_obs_matches": [],
+          "cpc": 0,
+          "base_module_config_words": [
+            0,
+            384,
+            384,
+            0,
+            48000,
+            32,
+            4294967056,
+            1,
+            0,
+            73730
+          ],
+          "base_module_config_bytes": 40,
+          "base_module_config_hex": "0000000080010000800100000000000080bb00002000000010ffffff010000000000000002200100",
+          "resource_estimate": {
+            "domain": "low_latency",
+            "task_bytes": 696,
+            "queue_bytes": 4096,
+            "total_bytes_before_page_roundup": 4792,
+            "pages": 2
+          },
+          "init_payload_bytes": 40,
+          "init_payload_sha256": "34dc7e4999e3c70dbdd59bd6804bf632eb16573378c256bac6d383325d59c875",
+          "init_payload_hex": "0000000080010000800100000000000080bb00002000000010ffffff010000000000000002200100",
+          "init_payload_layout": "base module config only",
+          "init_payload_serialization_status": "derived from local SOF IPC4 struct layout; static offline only",
+          "ipc4_init_module_header": {
+            "message_type": 0,
+            "module_target": true,
+            "primary_template_without_instance": 1073741834,
+            "module_instance": "allocate dynamically",
+            "extension_payload_dwords": 10,
+            "runtime_pipeline_id": "allocate dynamically",
+            "core_id": 0,
+            "payload_limit_bytes": 4096,
+            "within_limit": true
+          }
+        }
+      },
+      "gain.12.1": {
+        "source_block_index": 12,
+        "widget_type_code": 4,
+        "private_tuple_uuids": [
+          "61bca9a8-18d0-4a18-8e7b-2639219804b7"
+        ],
+        "private_tuple_arrays": [
+          {
+            "tuple_type": 4,
+            "count": 3,
+            "values": [
+              {
+                "type": 4,
+                "token": 262,
+                "value": 2147483647
+              },
+              {
+                "type": 4,
+                "token": 260,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 261,
+                "value": 500000
+              }
+            ]
+          },
+          {
+            "tuple_type": 2,
+            "count": 1,
+            "values": [
+              {
+                "type": 2,
+                "token": 417,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 0,
+            "count": 1,
+            "values": [
+              {
+                "type": 0,
+                "token": 405,
+                "value": "61bca9a8-18d0-4a18-8e7b-2639219804b7"
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 5,
+            "values": [
+              {
+                "type": 4,
+                "token": 412,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 411,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 404,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 415,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 416,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 768
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73732
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294914576
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1970,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1908,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1907,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1906,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1905,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1904,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1903,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1900,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1901,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1902,
+                "value": 32
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 768
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73732
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 4
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294914576
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 10,
+            "values": [
+              {
+                "type": 4,
+                "token": 1938,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1971,
+                "value": 384
+              },
+              {
+                "type": 4,
+                "token": 1937,
+                "value": 73730
+              },
+              {
+                "type": 4,
+                "token": 1936,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 1935,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 1934,
+                "value": 4294967056
+              },
+              {
+                "type": 4,
+                "token": 1933,
+                "value": 2
+              },
+              {
+                "type": 4,
+                "token": 1930,
+                "value": 48000
+              },
+              {
+                "type": 4,
+                "token": 1931,
+                "value": 32
+              },
+              {
+                "type": 4,
+                "token": 1932,
+                "value": 32
+              }
+            ]
+          }
+        ],
+        "input_audio_formats": [
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          }
+        ],
+        "output_audio_formats": [
+          {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          }
+        ],
+        "firmware_modules": [
+          {
+            "uuid": "61bca9a8-18d0-4a18-8e7b-2639219804b7",
+            "manifest_index": 6,
+            "manifest_name": "GAIN"
+          }
+        ],
+        "embedded_control_count": 2,
+        "private_tuple_data_size": 692,
+        "private_tuple_data_hex": "24000000040000000300000006010000ffffff7f04010000020000000501000020a10700140000000200000001000000a10100000100000020000000000000000100000095010000a8a9bc61d018184a8e7b2639219804b73400000004000000050000009c010000010000009b0100000100000094010000000000009f01000001000000a0010000010000005c000000040000000a000000b20700008001000074070000010000007307000002200100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e070000200000005c000000040000000a0000009207000001000000b307000080010000910700000220010090070000000000008f070000010000008e07000010ffffff8d070000020000008a07000080bb00008b070000200000008c070000200000005c000000040000000a000000b2070000000300007407000001000000730700000420010072070000000000006c07000080bb00006d070000200000006e070000200000006f070000040000007107000004000000700700001032ffff5c000000040000000a000000b20700008001000074070000010000007307000002200100720700000000000071070000010000007007000010ffffff6f070000020000006c07000080bb00006d070000200000006e070000200000005c000000040000000a0000009207000001000000b307000000030000910700000420010090070000000000008a07000080bb00008b070000200000008c070000200000008d070000040000008f070000040000008e0700001032ffff5c000000040000000a0000009207000001000000b307000080010000910700000220010090070000000000008f070000010000008e07000010ffffff8d070000020000008a07000080bb00008b070000200000008c07000020000000",
+        "embedded_controls": [
+          {
+            "name": "Dmic0 Capture Volume",
+            "type_code": 1,
+            "control_index_within_type": 0,
+            "control_index_basis": "ASoC per-widget index counter for this control type",
+            "bytes": 388,
+            "sha256": "30fceabbb1722f9b027df5c3561dbef094906273f9a199ae65be608f812f44ba",
+            "record_hex": "cc00000001000000446d696330204361707475726520566f6c756d65000000000000000000000000000000000000000000000000130000000001000000010000010000008800000001000000d8dcffffc800000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000068010000000000002d000000000000000000000002000000100000000100000000000000030000001000000001000000010000000400000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff00000000000000001c0000001c000000040000000200000015050000000000001405000000000000",
+            "mixer_metadata": {
+              "max": 45,
+              "num_channels": 2,
+              "num_channels_source_offset": 224
+            }
+          },
+          {
+            "name": "Dmic0 Capture Switch",
+            "type_code": 1,
+            "control_index_within_type": 1,
+            "control_index_basis": "ASoC per-widget index counter for this control type",
+            "bytes": 388,
+            "sha256": "4677da513dbf617fbc489553d771b298a18bab838de18009187d2f6d7bc8c189",
+            "record_hex": "cc00000001000000446d69633020436170747572652053776974636800000000000000000000000000000000000000000000000003000000030100000301000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006801000000000000010000000000000000000000040000001000000002000000000000001000000010000000020000000100000003000000100000000200000002000000040000001000000002000000030000001100000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff000000000000000000000000ffffffff00000000000000001c0000001c000000040000000200000014050000010000001505000001000000",
+            "mixer_metadata": {
+              "max": 1,
+              "num_channels": 4,
+              "num_channels_source_offset": 224
+            },
+            "capture_enable_update": {
+              "control_name": "Dmic0 Capture Switch",
+              "module_uuid": "61bca9a8-18d0-4a18-8e7b-2639219804b7",
+              "module_id": 6,
+              "module_instance": "runtime allocation",
+              "control_id": 1,
+              "control_id_status": "derived from per-widget mixer index ordering",
+              "param_id": 200,
+              "default_state_from_sof_control_setup": "off",
+              "requested_state_before_capture": "on",
+              "channel_count": 4,
+              "message_primary_template": 1140850694,
+              "message_extension": 1015021620,
+              "payload_bytes": 52,
+              "payload_hex_control_id_zero_template": "00000400000000000000000000000000000000000000000001000000010000000100000002000000010000000300000001000000",
+              "payload_sha256_control_id_zero_template": "5135351ad1df65bfb02d4c2a993b5fd7dea22cf359c54d627264e899c073f620",
+              "ordering": "after widget control defaults and before pipeline capture start"
+            }
+          }
+        ],
+        "record_sha256": "6411ed7c1584a85b320b10bc23058edad1f0e08c7a82a562a69128e9a87a6789",
+        "selected_module_configuration": {
+          "uuid": "61bca9a8-18d0-4a18-8e7b-2639219804b7",
+          "module_id": 6,
+          "module_type": 32,
+          "module_init_config_type": 0,
+          "core_id": 0,
+          "input_format_index": 0,
+          "input_format": {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          },
+          "output_format_index": 0,
+          "output_format": {
+            "sampling_frequency": 48000,
+            "bit_depth": 32,
+            "channel_map": 4294967056,
+            "channel_config": 1,
+            "interleaving_style": 0,
+            "format_config": 73730,
+            "buffer_size": 384,
+            "channels": 2,
+            "valid_bit_depth": 32,
+            "sample_type": 1
+          },
+          "ibs": 384,
+          "obs": 384,
+          "is_pages": 0,
+          "manifest_ibs_obs_matches": [],
+          "cpc": 0,
+          "base_module_config_words": [
+            0,
+            384,
+            384,
+            0,
+            48000,
+            32,
+            4294967056,
+            1,
+            0,
+            73730
+          ],
+          "base_module_config_bytes": 40,
+          "base_module_config_hex": "0000000080010000800100000000000080bb00002000000010ffffff010000000000000002200100",
+          "resource_estimate": {
+            "domain": "low_latency",
+            "task_bytes": 696,
+            "queue_bytes": 4096,
+            "total_bytes_before_page_roundup": 4792,
+            "pages": 2
+          },
+          "init_payload_bytes": 64,
+          "init_payload_sha256": "2e0245ded7db2faea7caf41cd55d47474ed5fb38b1417e13a02f8cc5c7473be9",
+          "init_payload_hex": "0000000080010000800100000000000080bb00002000000010ffffff010000000000000002200100ffffffffffffff7f020000000000000020a1070000000000",
+          "init_payload_layout": "GAIN: base + six-word gain params",
+          "init_payload_serialization_status": "derived from local SOF IPC4 struct layout; static offline only",
+          "ipc4_init_module_header": {
+            "message_type": 0,
+            "module_target": true,
+            "primary_template_without_instance": 1073741830,
+            "module_instance": "allocate dynamically",
+            "extension_payload_dwords": 16,
+            "runtime_pipeline_id": "allocate dynamically",
+            "core_id": 0,
+            "payload_limit_bytes": 4096,
+            "within_limit": true
+          }
+        }
+      },
+      "pipeline.12": {
+        "source_block_index": 12,
+        "widget_type_code": 17,
+        "private_tuple_uuids": [],
+        "private_tuple_arrays": [
+          {
+            "tuple_type": 4,
+            "count": 6,
+            "values": [
+              {
+                "type": 4,
+                "token": 210,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 207,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 206,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 205,
+                "value": 1
+              },
+              {
+                "type": 4,
+                "token": 203,
+                "value": 0
+              },
+              {
+                "type": 4,
+                "token": 201,
+                "value": 0
+              }
+            ]
+          },
+          {
+            "tuple_type": 2,
+            "count": 1,
+            "values": [
+              {
+                "type": 2,
+                "token": 417,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "tuple_type": 4,
+            "count": 1,
+            "values": [
+              {
+                "type": 4,
+                "token": 404,
+                "value": 0
+              }
+            ]
+          }
+        ],
+        "input_audio_formats": [],
+        "output_audio_formats": [],
+        "firmware_modules": [],
+        "embedded_control_count": 0,
+        "private_tuple_data_size": 100,
+        "private_tuple_data_hex": "3c0000000400000006000000d200000000000000cf00000000000000ce00000001000000cd00000001000000cb00000000000000c900000000000000140000000200000001000000a1010000010000001400000004000000010000009401000000000000",
+        "embedded_controls": [],
+        "record_sha256": "6985f8ca7e11cffc767ae3749d19d6a324d28f0f158341b7148723db2627d230"
+      }
+    },
+    "logical_routes": [
+      {
+        "source": "dai-copier.DMIC.dmic01.capture",
+        "sink": "gain.12.1",
+        "source_module_id": 4,
+        "source_instance": "allocate dynamically",
+        "source_queue_id": 0,
+        "destination_module_id": 6,
+        "destination_instance": "allocate dynamically",
+        "destination_queue_id": 0,
+        "bind_primary_template_instance_zero": 1157627908,
+        "unbind_primary_template_instance_zero": 1174405124,
+        "bind_extension_template_instance_zero": 6,
+        "unbind_extension_template_instance_zero": 6,
+        "queue_ids_status": "both endpoint pin counts equal one; SOF queue allocator therefore uses queue 0"
+      },
+      {
+        "source": "eqiir.12.1",
+        "sink": "module-copier.12.2",
+        "source_module_id": 10,
+        "source_instance": "allocate dynamically",
+        "source_queue_id": 0,
+        "destination_module_id": 4,
+        "destination_instance": "allocate dynamically",
+        "destination_queue_id": 0,
+        "bind_primary_template_instance_zero": 1157627914,
+        "unbind_primary_template_instance_zero": 1174405130,
+        "bind_extension_template_instance_zero": 4,
+        "unbind_extension_template_instance_zero": 4,
+        "queue_ids_status": "both endpoint pin counts equal one; SOF queue allocator therefore uses queue 0"
+      },
+      {
+        "source": "gain.12.1",
+        "sink": "eqiir.12.1",
+        "source_module_id": 6,
+        "source_instance": "allocate dynamically",
+        "source_queue_id": 0,
+        "destination_module_id": 10,
+        "destination_instance": "allocate dynamically",
+        "destination_queue_id": 0,
+        "bind_primary_template_instance_zero": 1157627910,
+        "unbind_primary_template_instance_zero": 1174405126,
+        "bind_extension_template_instance_zero": 10,
+        "unbind_extension_template_instance_zero": 10,
+        "queue_ids_status": "both endpoint pin counts equal one; SOF queue allocator therefore uses queue 0"
+      }
+    ]
+  },
+  "runtime_id_policy": {
+    "module_indexes": "look up by module UUID in this firmware image",
+    "module_instances": "allocate per module at runtime",
+    "queue_ids": "derive from topology pin bindings/routes"
+  },
+  "startup_control_updates": [
+    {
+      "control_name": "Dmic0 Capture Switch",
+      "module_uuid": "61bca9a8-18d0-4a18-8e7b-2639219804b7",
+      "module_id": 6,
+      "module_instance": "runtime allocation",
+      "control_id": 1,
+      "control_id_status": "derived from per-widget mixer index ordering",
+      "param_id": 200,
+      "default_state_from_sof_control_setup": "off",
+      "requested_state_before_capture": "on",
+      "channel_count": 4,
+      "message_primary_template": 1140850694,
+      "message_extension": 1015021620,
+      "payload_bytes": 52,
+      "payload_hex_control_id_zero_template": "00000400000000000000000000000000000000000000000001000000010000000100000002000000010000000300000001000000",
+      "payload_sha256_control_id_zero_template": "5135351ad1df65bfb02d4c2a993b5fd7dea22cf359c54d627264e899c073f620",
+      "ordering": "after widget control defaults and before pipeline capture start"
+    }
+  ],
+  "safety_gates": [
+    "no DSP writes have been generated or sent",
+    "no firmware load or DMA start is authorized by this artifact",
+    "requires an IPC4 boot/transport implementation and shared-controller recovery review"
+  ]
+}

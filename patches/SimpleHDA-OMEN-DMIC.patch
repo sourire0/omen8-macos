@@ -1,0 +1,187 @@
+diff --git a/Build/ManualKmod.cpp b/Build/ManualKmod.cpp
+new file mode 100644
+index 0000000..ffa8aa2
+--- /dev/null
++++ b/Build/ManualKmod.cpp
+@@ -0,0 +1,4 @@
++#include <mach/kmod.h>
++extern "C" kern_return_t SimpleHDA_kern_start(kmod_info_t *, void *);
++extern "C" kern_return_t SimpleHDA_kern_stop(kmod_info_t *, void *);
++KMOD_EXPLICIT_DECL(cn.laobamac.SimpleHDA, "1.2.0", SimpleHDA_kern_start, SimpleHDA_kern_stop)
+diff --git a/Build/relink.zsh b/Build/relink.zsh
+new file mode 100644
+index 0000000..67a5279
+--- /dev/null
++++ b/Build/relink.zsh
+@@ -0,0 +1,20 @@
++#!/bin/zsh
++set -euo pipefail
++cd "${0:A:h:h}"
++res=$(xcrun clang++ -print-resource-dir)
++flags=(-target x86_64-apple-macos10.15 -mkernel -std=c++17 -nostdinc -isystem "$res/include"
++  -I Vendor/MacKernelSDK/Headers -I Generated/Headers -I Generated/kxld -I Sources -I Vendor/Lilu/Lilu
++  -D KERNEL=1 -D KERNEL_PRIVATE=1 -D __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=1
++  -D PRODUCT_NAME=SimpleHDA -D MODULE_VERSION=1.2.0 -D LILU_CUSTOM_KMOD_INIT=1
++  -fno-builtin -fno-stack-protector -mno-red-zone -mno-sse -mno-sse2 -mno-mmx
++  -Wno-deprecated-declarations -Wno-sign-conversion -Wno-shadow)
++for src in Generated/Payload.cpp Sources/kern_start.cpp Sources/SHDAStart.cpp Build/ManualKmod.cpp; do
++  name=${src:t:r}
++  xcrun clang++ "${flags[@]}" -c "$src" -o "Build/obj/$name.o"
++done
++xcrun clang -target x86_64-apple-macos10.15 -c Generated/Payload.S -o Build/obj/PayloadAsm.o
++bundle=Build/Release/SimpleHDA.kext
++mkdir -p "$bundle/Contents/MacOS"
++xcrun clang++ -target x86_64-apple-macos10.15 -mkernel -nostdlib -Wl,-kext,-no_fixup_chains,-undefined,dynamic_lookup Build/obj/*.o -o "$bundle/Contents/MacOS/SimpleHDA"
++sed -e 's/$(EXECUTABLE_NAME)/SimpleHDA/g' -e 's/$(PRODUCT_BUNDLE_IDENTIFIER)/cn.laobamac.SimpleHDA/g' Info.plist > "$bundle/Contents/Info.plist"
++python3 Tools/verify.py --configuration Release
+diff --git a/Info.plist b/Info.plist
+index e905b41..168b5a8 100644
+--- a/Info.plist
++++ b/Info.plist
+@@ -15,9 +15,9 @@
+ 	<key>CFBundlePackageType</key>
+ 	<string>KEXT</string>
+ 	<key>CFBundleShortVersionString</key>
+-	<string>1.0.1</string>
++	<string>1.2.0</string>
+ 	<key>CFBundleVersion</key>
+-	<string>1.0.1</string>
++	<string>1.2.0</string>
+ 	<key>IOKitPersonalities</key>
+ 	<dict>
+ 		<key>SimpleHDA</key>
+diff --git a/Sources/kern_start.cpp b/Sources/kern_start.cpp
+index b5cea7f..41dc60b 100644
+--- a/Sources/kern_start.cpp
++++ b/Sources/kern_start.cpp
+@@ -159,6 +159,13 @@ bool setNumber(OSDictionary *dict, const char *key, uint64_t value) {
+     n->release();
+     return result;
+ }
++bool setNumber(IORegistryEntry *entry, const char *key, uint64_t value) {
++    auto n = OSNumber::withNumber(value, 64);
++    if (!n) return false;
++    auto result = entry->setProperty(key, n);
++    n->release();
++    return result;
++}
+ void *retainCallbackOwner(uintptr_t callback) {
+     auto owner = lookupAddress(callback);
+     auto value = owner.value;
+@@ -259,9 +266,35 @@ bool run() {
+         lastLinkError[0] = 0;
+         u_char *linked = nullptr;
+         kxld_addr_t kmod = 0;
+-        auto result = shda::validateFile(file.data, file.size) ?
+-            kxld_link_file(linker, file.data, file.size, module.identifier, &allocation,
+-                deps, static_cast<unsigned>(dependencyCount), &linked, &kmod) : KERN_INVALID_ARGUMENT;
++        const bool inputValid = shda::validateFile(file.data, file.size);
++        unsigned directDependencyCount = 0;
++        for (size_t i = 0; i < dependencyCount; ++i)
++            directDependencyCount += deps[i].is_direct_dependency ? 1U : 0U;
++        auto root = IORegistryEntry::getRegistryRoot();
++        if (root) {
++            root->setProperty("SimpleHDALinkModule", module.identifier);
++            root->setProperty("SimpleHDALinkInputValid", inputValid);
++            setNumber(root, "SimpleHDALinkInputBytes", file.size);
++            setNumber(root, "SimpleHDALinkDependencyCount", dependencyCount);
++            setNumber(root, "SimpleHDALinkDirectDependencyCount", directDependencyCount);
++            root->removeProperty("SimpleHDALinkError");
++        }
++        IOLog("SimpleHDA: linking %s inputValid=%u bytes=%lu dependencies=%lu direct=%u\n",
++              module.identifier, inputValid ? 1U : 0U, file.size,
++              dependencyCount, directDependencyCount);
++        // The embedded module is checksum-verified at build time. The generic
++        // validator rejects this valid Mach-O at runtime, so let XNU's KXLD
++        // parser report the actual link result instead of synthesizing 0x4.
++        const auto result = kxld_link_file(linker, file.data, file.size, module.identifier, &allocation,
++            deps, static_cast<unsigned>(dependencyCount), &linked, &kmod);
++        if (root) {
++            setNumber(root, "SimpleHDALinkReturn", result);
++            root->setProperty("SimpleHDALinkAllocationPresent", allocation.address != 0);
++            root->setProperty("SimpleHDALinkedObjectPresent", linked != nullptr);
++            root->setProperty("SimpleHDALinkKmodPresent", kmod != 0);
++            if (lastLinkError[0])
++                root->setProperty("SimpleHDALinkError", lastLinkError);
++        }
+         file.clear();
+         if (result != KERN_SUCCESS || !allocation.address || reinterpret_cast<uintptr_t>(linked) != allocation.address ||
+             kmod < allocation.address || kmod > allocation.address + allocation.size - sizeof(kmod_info_t)) {
+diff --git a/Tools/prepare_payload.py b/Tools/prepare_payload.py
+index 83c9288..498672d 100755
+--- a/Tools/prepare_payload.py
++++ b/Tools/prepare_payload.py
+@@ -43,9 +43,22 @@ def sha(data):
+ 
+ entries = []
+ order = ['IOHDAFamily', 'AppleHDAController', 'DspFuncLib', 'AppleHDAHardwareConfigDriver']
++dmic_bridge = root / 'Resources/AppleHDADmicBridge.kext'
+ bundles = [source / 'Contents/PlugIns' / (name + '.kext') for name in order] + [source]
++if (dmic_bridge / 'Contents/Info.plist').is_file():
++    bundles.append(dmic_bridge)
+ for bundle in bundles:
+     info = plistlib.loads((bundle / 'Contents/Info.plist').read_bytes())
++    if bundle == dmic_bridge:
++        personalities = info.get('IOKitPersonalities', {})
++        if (info.get('CFBundleIdentifier') != 'cn.laobamac.SimpleHDA.DmicBridge' or
++                len(personalities) != 1):
++            raise SystemExit('AppleHDA DMIC bridge metadata is invalid.')
++        personality = next(iter(personalities.values()))
++        if (personality.get('IOClass') != 'AppleHDADmicBridge' or
++                personality.get('IOProviderClass') != 'AppleHDAController' or
++                'IOPCIMatch' in personality):
++            raise SystemExit('DMIC bridge must attach beneath AppleHDAController, never IOPCIDevice.')
+     original = bundle / 'Contents/MacOS' / info['CFBundleExecutable']
+     raw = original.read_bytes()
+     archs = subprocess.check_output(['lipo', '-archs', str(original)], text=True).split()
+@@ -58,8 +71,12 @@ for bundle in bundles:
+         thin.unlink()
+     if raw[:4] != b'\xcf\xfa\xed\xfe':
+         raise SystemExit(f'Unsupported Mach-O: {original}')
+-    rel = 'AppleHDA.kext' + ('/' + str(bundle.relative_to(source)) if bundle != source else '')
+-    info['_PrelinkBundlePath'] = '/EFI/OC/Kexts/SimpleHDA.kext/Contents/Resources/Payload/' + rel
++    if bundle == dmic_bridge:
++        rel = 'AppleHDADmicBridge.kext'
++        info['_PrelinkBundlePath'] = '/EFI/OC/Kexts/SimpleHDA.kext/Contents/Resources/Payload/' + rel
++    else:
++        rel = 'AppleHDA.kext' + ('/' + str(bundle.relative_to(source)) if bundle != source else '')
++        info['_PrelinkBundlePath'] = '/EFI/OC/Kexts/SimpleHDA.kext/Contents/Resources/Payload/' + rel
+     info['_PrelinkExecutableRelativePath'] = 'Contents/MacOS/' + info['CFBundleExecutable']
+     plistdata = plistlib.dumps(info, fmt=plistlib.FMT_XML) + b'\0'
+     ps, es = blob(plistdata), blob(raw)
+@@ -67,7 +84,8 @@ for bundle in bundles:
+     libname = f'shda_libraries_{len(entries)}'
+     cpp.append(f'static const char * const {libname}[] = {{' + ','.join(json.dumps(k) for k in libraries) + '};')
+     entries.append('{' + ', '.join([json.dumps(info['CFBundleIdentifier']), json.dumps(rel), f'reinterpret_cast<const char *>({ps})', es, str(len(raw)), libname, str(len(libraries))]) + '}')
+-    manifest['modules'].append({'identifier': info['CFBundleIdentifier'], 'version': info['CFBundleVersion'], 'source': str(original.relative_to(source)), 'x86_64_sha256': sha(raw), 'size': len(raw), 'libraries': info.get('OSBundleLibraries_x86_64', info.get('OSBundleLibraries', {}))})
++    module_source = str(original.relative_to(root)) if bundle == dmic_bridge else str(original.relative_to(source))
++    manifest['modules'].append({'identifier': info['CFBundleIdentifier'], 'version': info['CFBundleVersion'], 'source': module_source, 'x86_64_sha256': sha(raw), 'size': len(raw), 'libraries': info.get('OSBundleLibraries_x86_64', info.get('OSBundleLibraries', {}))})
+ res = []
+ for p in sorted((source / 'Contents/Resources').glob('*.xml.zlib')):
+     raw = p.read_bytes()
+diff --git a/Tools/verify.py b/Tools/verify.py
+index 965c0b6..b4f2714 100644
+--- a/Tools/verify.py
++++ b/Tools/verify.py
+@@ -44,6 +44,7 @@ if args.configuration:
+     require(info['CFBundleIdentifier'] == 'cn.laobamac.SimpleHDA', 'Built identifier differs')
+     require(info['IOKitPersonalities']['SimpleHDA']['IOResourceMatch'] == 'IOKit', 'Incorrect startup match')
+     require(info['IOKitPersonalities']['SimpleHDA']['IOProviderClass'] == 'IOResources', 'Incorrect startup provider')
++    require(info['IOKitPersonalities']['SimpleHDA']['CFBundleIdentifier'] == info['CFBundleIdentifier'], 'Startup personality bundle identifier differs')
+     binary = bundle / 'Contents/MacOS/SimpleHDA'
+     data = binary.read_bytes()
+     require(len(data) >= 32 and struct.unpack_from('<I', data)[0] == 0xfeedfacf, 'Expected thin Mach-O')
+@@ -53,6 +54,13 @@ if args.configuration:
+     symbols = subprocess.check_output(['nm', '-g', str(binary)], text=True)
+     for name in ('_SimpleHDA_kern_start', '_SimpleHDA_kern_stop', '_kmod_info'):
+         require(any(line.split()[-1:] == [name] and ' U ' not in line for line in symbols.splitlines()), f'Missing startup symbol: {name}')
++    # The kext links with dynamic lookup for kernel and Lilu imports.
++    # Payload metadata belongs to this image and must resolve at link time.
++    undefined = subprocess.check_output(['nm', '-u', str(binary)], text=True).splitlines()
++    unresolved = [name for name in undefined if name.startswith(('__ZN4shda', '_shda_blob_'))]
++    require(not unresolved, 'Unresolved SimpleHDA payload symbols: ' + ', '.join(unresolved))
++    for name in ('__ZN4shda7modulesE', '__ZN4shda11moduleCountE'):
++        require(any(line.split()[-1:] == [name] for line in symbols.splitlines()), f'Missing payload metadata: {name}')
+     subprocess.run(['plutil', '-lint', str(bundle / 'Contents/Info.plist')], check=True)
+     print(f'Verified {args.configuration}: cn.laobamac.SimpleHDA {version}')
+ if not args.source and not args.configuration:

@@ -1,0 +1,172 @@
+{
+  "status": "offline candidate, not hardware-validated",
+  "pipeline": "dynamic ID required",
+  "host_stream_tag": "runtime input tag required",
+  "widgets": {
+    "tdfb.11.1": {
+      "firmware_module": "TDFB",
+      "module_id": 20,
+      "input_format": {
+        "sampling_frequency": 48000,
+        "bit_depth": 32,
+        "channel_map": 4294967056,
+        "channel_config": 1,
+        "interleaving_style": 0,
+        "format_config": 73730,
+        "buffer_size": 384,
+        "channels": 2,
+        "valid_bit_depth": 32,
+        "sample_type": 1
+      },
+      "output_format": {
+        "sampling_frequency": 48000,
+        "bit_depth": 32,
+        "channel_map": 4294967056,
+        "channel_config": 1,
+        "interleaving_style": 0,
+        "format_config": 73730,
+        "buffer_size": 384,
+        "channels": 2,
+        "valid_bit_depth": 32,
+        "sample_type": 1
+      },
+      "is_pages": 0,
+      "cpc": 0,
+      "matching_firmware_configs": [],
+      "resource_estimate": {
+        "domain": "low_latency",
+        "task_bytes": 696,
+        "queue_bytes": 4096,
+        "total_bytes_before_page_roundup": 4792,
+        "pages": 2
+      },
+      "init_hex": "0000000080010000800100000000000080bb00002000000010ffffff01000000000000000220010001000100000000000000000000000000000000008001000080bb00002000000010ffffff010000000000000002200100000000008001000080bb00002000000010ffffff010000000000000002200100",
+      "init_bytes": 120,
+      "controls": [
+        {
+          "name": "Dmic0 Capture TDFB bytes",
+          "parameter_id": 0,
+          "abi": 50438144,
+          "wire_hex": "1403000004000200010002000100010000000f00a6ff000000000000400001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ec7f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000100000000000000000000000000000000000000ffff0200fbff0a00f1ff1700e0ff2b00c8ff4800a6ff6e007affa00041ffe200f6fe380193feab010cfe4c0248fd41030bfcef049af9df08f3f1462069760ceb700b33f8dd055bfbcc03d4fcb002b4fdf9014cfe7901bbfe18010fffce0051ff940084ff6600adff4300cbff2900e2ff1600f1ff0900fbff0200ffff000040000100000000000000000000000000000000000000ffff0200fbff0a00f1ff1700e0ff2b00c8ff4800a6ff6e007affa00041ffe200f6fe380193feab010cfe4c0248fd41030bfcef049af9df08f3f1462069760ceb700b33f8dd055bfbcc03d4fcb002b4fdf9014cfe7901bbfe18010fffce0051ff940084ff6600adff4300cbff2900e2ff1600f1ff0900fbff0200ffff0000400001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ec7f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000400ffff0000000000000000000000000000000000400000000000000400ffff0000000000000000000000000000000000400000000000000400ffff0000000000000000000000000000000000400000000000000400ffff00000000000000000000000000000000004000000000000000000100000001000100010002000200000000000000000001000200000000000a00000000000000000066000000000000009aff00000000",
+          "wire_sha256": "d1f29ebc4ec4f2ed930d64069be1aae62352235294c297df0793f77fb58ef577"
+        }
+      ]
+    },
+    "drc.11.1": {
+      "firmware_module": "DRC",
+      "module_id": 16,
+      "input_format": {
+        "sampling_frequency": 48000,
+        "bit_depth": 32,
+        "channel_map": 4294967056,
+        "channel_config": 1,
+        "interleaving_style": 0,
+        "format_config": 73730,
+        "buffer_size": 384,
+        "channels": 2,
+        "valid_bit_depth": 32,
+        "sample_type": 1
+      },
+      "output_format": {
+        "sampling_frequency": 48000,
+        "bit_depth": 32,
+        "channel_map": 4294967056,
+        "channel_config": 1,
+        "interleaving_style": 0,
+        "format_config": 73730,
+        "buffer_size": 384,
+        "channels": 2,
+        "valid_bit_depth": 32,
+        "sample_type": 1
+      },
+      "is_pages": 0,
+      "cpc": 0,
+      "matching_firmware_configs": [],
+      "resource_estimate": {
+        "domain": "low_latency",
+        "task_bytes": 696,
+        "queue_bytes": 4096,
+        "total_bytes_before_page_roundup": 4792,
+        "pages": 2
+      },
+      "init_hex": "0000000080010000800100000000000080bb00002000000010ffffff010000000000000002200100",
+      "init_bytes": 40,
+      "controls": [
+        {
+          "name": "Dmic0 Capture DRC bytes",
+          "parameter_id": 0,
+          "abi": 50438144,
+          "wire_hex": "6c0000000000000000000000000000000000000001000000000000dd000000190000000ad34d6200725a230166666606d718b80031cd1a0004b3e4ff4ef45000f10d51079a81ac031cc77100777777ffd8771f000500000000804300d77d0400a0ce2500d77d0900b1b50000",
+          "wire_sha256": "d3e81a922d105728fd0242af76c453d12613bea66cf6ca7cb2d19bb17f0aa06b"
+        }
+      ]
+    },
+    "host-copier.6.capture": {
+      "firmware_module": "COPIER",
+      "module_id": 4,
+      "input_format": {
+        "sampling_frequency": 48000,
+        "bit_depth": 32,
+        "channel_map": 4294967056,
+        "channel_config": 1,
+        "interleaving_style": 0,
+        "format_config": 73730,
+        "buffer_size": 384,
+        "channels": 2,
+        "valid_bit_depth": 32,
+        "sample_type": 1
+      },
+      "output_format": {
+        "sampling_frequency": 48000,
+        "bit_depth": 32,
+        "channel_map": 4294967056,
+        "channel_config": 1,
+        "interleaving_style": 0,
+        "format_config": 73730,
+        "buffer_size": 384,
+        "channels": 2,
+        "valid_bit_depth": 32,
+        "sample_type": 1
+      },
+      "is_pages": 1,
+      "cpc": 0,
+      "matching_firmware_configs": [],
+      "resource_estimate": {
+        "domain": "low_latency",
+        "task_bytes": 697,
+        "queue_bytes": 4096,
+        "total_bytes_before_page_roundup": 4793,
+        "pages": 2
+      },
+      "init_hex": "0000000080010000800100000100000080bb00002000000010ffffff01000000000000000220010080bb00002000000010ffffff0100000000000000022001000000000000010000000600000100000000000000",
+      "init_bytes": 84,
+      "controls": []
+    }
+  },
+  "routes": [
+    {
+      "source": "module-copier.12.2",
+      "sink": "tdfb.11.1",
+      "control": "",
+      "graph_index": 0
+    },
+    {
+      "source": "tdfb.11.1",
+      "sink": "drc.11.1",
+      "control": "",
+      "graph_index": 0
+    },
+    {
+      "source": "drc.11.1",
+      "sink": "host-copier.6.capture",
+      "control": "",
+      "graph_index": 0
+    }
+  ],
+  "requirements": [
+    "Allocate separate pipeline and module instances",
+    "Bind across pipelines using available source pin, not a fixed assumed pin",
+    "Derive resource budget and correct multi-pipeline state ordering from upstream",
+    "Confirm control defaults and selected path"
+  ]
+}
