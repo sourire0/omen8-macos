@@ -6,24 +6,34 @@
 
 备份文件和 Windows EFI，保存 BitLocker 恢复密钥并准备 Windows 恢复介质。优先使用独立 SSD 安装 macOS；双系统可在 Windows 先压缩目标卷，保持 Windows EFI、恢复分区和数据分区原样。准备两个 U 盘，一个用于测试，一个保留经过启动验证的 EFI。固件优先选混合显卡模式。存储依赖 VMD/RST 的机器先弄清 Windows 的切换及恢复过程，贸然改 AHCI 可能导致 Windows 无法启动。
 
-## 2. 在 Windows 准备 UEFI 安装盘
+## 2. 在 Windows 用 1401 构建初始 EFI 和安装盘
 
-1. 下载同一发行版本的 OpenCorePkg、Python 3 和 plist 编辑工具。准备支持该 macOS 版本的有线网络，在线恢复需要能访问 Apple 服务器。
-2. 安装 Python 时确认 Python Launcher 可用。在 PowerShell 进入 OpenCorePkg 的 `Utilities/macrecovery`，用 `py -3 macrecovery.py -h` 检查参数，再按该版本的 Windows 指南使用目标恢复版本对应的 board ID。命令形态为 `py -3 macrecovery.py -b <BOARD_ID> -m <MODEL_VALUE> download`，将占位符换成指南值。目录内应同时有恢复镜像和对应的 chunklist。
-3. 在磁盘管理里凭容量和插拔确认 U 盘。备份 U 盘内容后，将目标 U 盘准备为可供 UEFI 读取的 FAT32 分区。将恢复文件放入根目录的 `com.apple.recovery.boot`，将 `EFI` 文件夹并列放置。用 `Get-ChildItem X:\` 核对盘符，再检查 `X:\EFI\BOOT\BOOTx64.efi`、`X:\EFI\OC\OpenCore.efi` 和 `X:\EFI\OC\config.plist`。
-4. 可以使用目标版本支持的 1401 Windows 构建器生成初始 U 盘，然后检查上述布局及 EFI 内容；图形和音频仍须按下文逐步验证。历史安装脚本可能要求自动登录或账户凭据，审阅脚本并依照当前上游说明执行。
+用 [NullMoth 1401 Windows 发行包](https://github.com/nullmoth/1401/releases) 构建，记录发行版、所选的 macOS 版本、硬件报告和工具触发的规则。1401 以 OpCore-Simplify 为生成基础。本手册的最终实测是 Tahoe 26.7.3。1401 的默认选择、可选版本和 NVIDIA 安装规则会随发行版变化，先确认当前发行支持所选组合，再制作安装盘。保留 Windows EFI 和单独的备用盘。
 
-[OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) · [Dortania Windows 制作指南](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/windows-install.html) · [1401](https://github.com/nullmoth/1401)
+1. 在 Windows 完整解压 `1401-Windows-<版本>.zip`，保留程序和配套目录。以管理员身份运行 `1401.exe`，允许它读取本机硬件和写入目标 U 盘。
+2. 选择 **Check this PC**。核对 i5-12500H、Iris Xe、RTX 3060、AX211、存储和网卡是否正确识别。用 **Build the Mac setup** 生成。阅读 **Your BIOS steps** 并记录所建议的设置。首次安装优先验证混合显卡模式和恢复环境的联网能力。
+3. 选择 **Create the macOS stick**。使用可擦除的 4 GB 或更大 U 盘，按容量、型号和盘符确认目标。在线恢复需要互联网及兼容网卡。等待 1401 写盘结束并重新识别盘符。
+4. 在 PowerShell 用 `Get-ChildItem -LiteralPath 'X:\'` 查看 U 盘。核对 `EFI\BOOT\BOOTx64.efi`、`EFI\OC\OpenCore.efi`、`EFI\OC\config.plist`，以及 `com.apple.recovery.boot` 下配对的恢复镜像与 chunklist。若生成了 `NullMoth` 目录，随原始输出保留。
+5. 在 Windows 本地备份未经修改的整个 `EFI`，保留 1401 的版本、硬件报告和构建结果。用 `Get-FileHash X:\EFI\OC\config.plist -Algorithm SHA256` 记录原始配置指纹。日志与硬件报告可能包含设备或用户信息，上传前先审阅。
 
-## 3. 组装基本 EFI
+[1401 使用说明](https://github.com/nullmoth/1401#using-it) · [1401 构建原理](https://github.com/nullmoth/1401/blob/main/docs/HOW-IT-WORKS.md)
 
-从同版 Sample.plist 和 X64 EFI 起步。使用本仓库 EFI 片段对照各个条目，根据自己的 ACPI 和 PCI 路径选择，保留 Sample.plist 当前版本的字段及类型。不要直接将片段保存为活动 config.plist。
+1401 无法生成合适配置时，可用同版 OpenCorePkg 里的 `Utilities/macrecovery` 和 Python 3，按指南下载目标版本的恢复镜像，自行组装 FAT32 U 盘。恢复镜像与 OpenCore 的 `EFI` 并列放在 U 盘根目录。 [Dortania Windows 制作指南](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/windows-install.html)
 
-- ACPI 从自己的固件表出发。分别检查 EC、USBX、PLUG、RTC/AWAC、GPIO、PNLF 和 XOSI 是否需要、设备路径是否存在。表名相同也可能适配不同固件。
-- 先启用 Lilu、VirtualSMC、网络及内建键盘所需驱动，再补 I2C 输入、USB 映射和电池传感器。USBToolBox 可在 Windows 采集映射，确认 USB 2/3 和内建蓝牙端口后生成 UTBMap；新系统维持 `XhciPortLimit=false`。
-- 选择合适的 SMBIOS 机型。实机参考为 MacBookPro16,2。给自己的机器生成独立序列、MLB、SystemUUID 和 ROM，保存在本地。暂缓登录 Apple 账户，先确保基础硬件和启动稳定。
-- 对照依赖次序和 `Kernel → Add` 的 BundlePath、ExecutablePath、PlistPath、Enabled。含子插件的路径须完整。不要双重注入 VoodooInput。UEFI 驱动和 OpenCore 版本须配套。
-- 运行同版 `ocvalidate.exe X:\EFI\OC\config.plist`。备份当前 EFI，记录 config 的 SHA-256 和当前版本，才开始试机。日志只在明确需要时启用，输出留在本机。
+## 3. 从 1401 初始 EFI 补到本机基线
+
+先按下一节进入恢复或桌面并记录启动结果；若恢复阶段就有键盘或网络问题，只先补对应组件。把原始 EFI 留作差异基准，工作副本按以下顺序改。初始构建已有的驱动、ACPI 和配置都需要按实际生成结果检查。
+
+| 顺序 | 针对这台 OMEN 8 的变更 | 测试停点 |
+| --- | --- | --- |
+| 启动 | 对照 `EFI/BOOT`、`EFI/OC` 和恢复目录。需要迁移时先校验 OpenCore 与驱动版本、Vault、ScanPolicy、UEFI 驱动、SMBIOS、安装/回退入口。 | 原始启动路径和恢复入口可用，记住该测试盘。 |
+| 输入、USB、网络 | 按硬件匹配选择 VoodooI2C 系列和 OmenI2C-51E8，保留单一 VoodooInput。生成 UTBMap 后核对 USB，按系统版本补 AirportItlwm、蓝牙配套及有线网。 | 键盘、触控板点按、USB、恢复联网、蓝牙配对逐项通过。 |
+| 图形 | 先配同代 WhateverXe 与 Graphics，迁移三处 HP 源码补丁；再按 NullMoth 发行说明部署 3060。 | Xe 内屏与加速正常后再验独显直连。 |
+| 声音和固件控制 | 先测 AppleALC + SimpleHDA 扬声器，再部署带 DMIC helper 的 SimpleHDA、配套 HAL 和 OMEN MUX 驱动/应用。 | 录音复开、Siri、图形模式写后读回和重启后面板归属逐项验收。 |
+
+- 逐项比较本仓库 [EFI 参考片段](../efi/OMEN8-reference.plist) 与生成的完整 plist。保留生成器对应 OpenCore schema，按本机 ACPI/PCI 路径选择，使用自己的 SMBIOS 值。参考片段必须合并才能使用。
+- 在 Windows 先运行同版 `ocvalidate.exe X:\EFI\OC\config.plist`。逐项核对 `Kernel → Add` 的 BundlePath、ExecutablePath、PlistPath、Enabled、插件嵌套路径及依赖次序。换盘或重建时重新核对目标盘符。
+- 详细版本、来源、定制文件和升级落点见 [逐组件维护手册](engineering.md)。若安装后运行 1401.app，它可能修改 U 盘配置，保留安装前后副本，避免覆盖已验证的本机补丁。
 
 [OpenCore 配置文档](https://github.com/acidanthera/OpenCorePkg/tree/master/Docs) · [USBToolBox](https://github.com/USBToolBox/tool)
 

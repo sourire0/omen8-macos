@@ -2,8 +2,8 @@
 
 面向 HP OMEN 16-b1xxx 暗影精灵 8 的工程记录，实机为 Core i5-12500H、Iris Xe、RTX 3060 Laptop、1920×1080 内屏，验证系统为 macOS Tahoe 26.7.x x86_64。其他 BIOS、子型号、GPU、屏幕和 macOS 构建需重新验证。Apple 的 macOS 软件许可有硬件适用限制。 [Apple 软件许可](https://www.apple.com/legal/sla/)
 
-- [从 Windows 制作启动盘到验收](docs/install-from-windows.md)
-- [修复过程、架构与实测结果](docs/engineering.md)
+- [从 Windows 用 1401 构建初始 EFI 到验收](docs/install-from-windows.md)
+- [修复过程、组件来源与逐项升级维护](docs/engineering.md)
 - [源码构建与交付清单](docs/build.md)
 - [EFI 配置参考片段](efi/OMEN8-reference.plist)
 
